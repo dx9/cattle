@@ -433,7 +433,7 @@ def test_service_add_remove_service_link(client, context):
     service1 = service1.addservicelink(serviceLink=service_link)
     service_maps = client. \
         list_serviceConsumeMap(serviceId=service1.id,
-                               consumedServiceId=service2.id, name='mylink')
+                               consumedServiceId=service2.id, name='myLink')
     assert len(service_maps) == 1
 
 
@@ -912,7 +912,7 @@ def test_destroy_service_instance(client, context):
     service = client.wait_success(service, 120)
 
     instance_service_map = client. \
-        list_serviceExposeMap(serviceId=service.id, state='Active')
+        list_serviceExposeMap(serviceId=service.id, state='active')
     assert len(instance_service_map) == 4
 
     # purge the instance1 w/o changing the service

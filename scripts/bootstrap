@@ -3,10 +3,12 @@ set -e
 
 cd $(dirname $0)
 
+echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 apt-get update
 apt-get install -y --no-install-recommends openjdk-7-jdk maven python-pip 
 
-DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install -y mysql-server
+DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install -y mysql-server postgresql-9.4
 
 pip install --upgrade pip==6.0.3 tox==1.8.1 virtualenv==12.0.4
 
@@ -23,27 +25,7 @@ install_build_tools()
 install_build_tools
 
 if [ "${CATTLE_DB_CATTLE_DATABASE}" == "mysql" ]; then
-    sed -i "0,/3306/! {0,/3306/ s/3306/${CATTLE_DB_CATTLE_MYSQL_PORT}/}" /etc/mysql/my.cnf
-    sed -i 's/^#\(max_connections.*\)/\1/;s/100/1000/' /etc/mysql/my.cnf
-    service mysql start
-
-    set +e
-    for ((i=0;i<60;i++))
-    do
-        if mysqladmin status 2> /dev/null; then
-            break
-        else
-            sleep 1
-        fi
-    done
-    set -e
-
-    # If the for loop times out... something went wrong and this will fail
-    db_exists=$(mysql -uroot -e 'SHOW DATABASES LIKE "cattle";'|wc -l)
-    if [ $db_exists -eq 0 ]; then
-	    echo "Setting up Database"
-        mysql < ../resources/content/db/mysql/create_db_and_user_dev.sql
-    fi
+    ./bootstrap-mysql
 fi
 
 if [ -x /usr/bin/cattle-binary-pull ] && [ -f ../resources/content/cattle-global.properties ]; then

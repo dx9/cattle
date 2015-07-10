@@ -5,7 +5,7 @@ cd $(dirname $0)/..
 
 # This will start MySQL if needed.
 if [ "${BOOTSTRAP_ON_RUN}" = "true" ]; then
-    ./scripts/bootstrap
+    ./scripts/bootstrap-mysql
     trap "service mysql stop" EXIT SIGTERM
 fi
 
