@@ -1,27 +1,14 @@
 #!/bin/bash
 set -e
 
-echo $(hostname)
-
 cd $(dirname $0)
 
-export RUNTIME_DIR=../../../runtime/ci/
+declare -A ENVIRONMENTS=${ENVIRONMENTS:-( [h2]=lite [mysql]=full [pgsql]=full )}
 export RUNTIME_DIR_CLEAN=true
 export CATTLE_LOGBACK_ROOT_LEVEL=error
-export CATTLE_DB_CATTLE_DATABASE=mysql
-
-: ${CATTLE_DB_CATTLE_MYSQL_PORT:=13306}
-export CATTLE_DB_CATTLE_MYSQL_PORT
 
 # Uncomment this if you're impatient
 #export CATTLE_IDEMPOTENT_CHECKS=false
-
-
-if [ -x "$(which wrapdocker)" ]; then
-    echo Launching Docker
-    wrapdocker >/tmp/docker.log 2>&1
-    docker info
-fi
 
 echo_dot()
 {
@@ -50,6 +37,38 @@ run()
     echo
 }
 
+test_failed ()
+{
+    echo Test failed
+    echo '***** RUN LOG *****'
+    cat /tmp/run.log
+    echo Test failed
+    exit 1
+}
+
+tear_down() {
+    echo "Shutting down agent..."
+    set +e
+    docker stop $(docker ps -q) &>> /dev/null
+    docker rm -fv $(docker ps -a -q) &>> /dev/null
+    set -e
+
+    echo "Shutting down server..."
+    pkill java
+    case ${db} in
+        mysql ) service mysql stop ;;
+        pgsql ) service postgresql stop ;;
+    esac
+}
+
+echo $(hostname)
+
+if [ -x "$(which wrapdocker)" ]; then
+    echo Launching Docker
+    wrapdocker >/tmp/docker.log 2>&1
+    docker info
+fi
+
 # Background to start the Docker pulls
 ./test-warm >/dev/null &
 
@@ -58,38 +77,75 @@ run ./clean
 
 CI=true MAVEN_ARGS='-B -q' run ./build
 
-run ./run --background
+for db in "${!ENVIRONMENTS[@]}"
+do
 
-# Wait for completion now to ensure that images are pulled
-./test-warm
+    echo "TESTING ${db}"
 
-export AGENT_IMAGE=$(grep bootstrap.required.image ../resources/content/cattle-global.properties | cut -f2 -d=)
-DEV_HOST=localhost:8081 ../tools/development/register-boot2docker.sh >/tmp/register.log &
+    # Bootstrap Environment
+    case ${db} in
 
-./wait-for-hosts
+        h2 )
 
-./test -- -n 2 -v || {
-    echo Test failed
-    cat /tmp/run.log
-    echo Test failed
-    exit 1
-}
+           export RUNTIME_DIR=$(pwd)/../runtime/ci-h2/
+           ;;
 
-# Now test H2
+        mysql )
 
-echo "Testing H2"
+            export RUNTIME_DIR=$(pwd)/../runtime/ci-mysql/
+            export CATTLE_DB_CATTLE_DATABASE=mysql
+            : ${CATTLE_DB_CATTLE_MYSQL_PORT:=13306}
+            export CATTLE_DB_CATTLE_MYSQL_PORT
+            ./bootstrap-mysql --clean
+            ;;
 
-export RUNTIME_DIR=../../../runtime/ci-h2/
-export RUNTIME_DIR_CLEAN=true
-export CATTLE_DB_CATTLE_DATABASE=h2
-export CATTLE_TEST_HTTP_PORT=8083
-export CATTLE_TEST_HTTP_PROXIED_PORT=8084
-export CATTLE_TEST_URL=http://localhost:8083/v1/schemas
+        pgsql )
 
-run ./run --background
-./test -e py27 -- core/test_virtual_machine.py core/test_container.py || {
-    echo Test failed
-    cat /tmp/run.log
-    echo Test failed
-    exit 1
-}
+            export RUNTIME_DIR=$(pwd)/../runtime/ci-postgres/
+            export CATTLE_DB_CATTLE_DATABASE=postgres
+            export DB_LOG_FILE=/var/log/postgresql/postgresql-9.4-main.log
+            ./bootstrap-pgsql --clean
+            ;;
+
+        * )
+
+            echo "Unknown database specified."
+            exit 1
+
+    esac
+
+    trap tear_down EXIT SIGTERM
+    run ./run --background
+
+    # Test Environment
+    case ${ENVIRONMENTS[${db}]} in
+
+        full )
+
+            # Wait for completion now to ensure that images are pulled
+            ./test-warm
+
+            AGENT_IMAGE=$(grep bootstrap.required.image ../resources/content/cattle-global.properties | cut -f2 -d=)
+            docker run --rm -v /var/run/docker.sock:/var/run/docker.sock ${AGENT_IMAGE} http://localhost:8081 >/tmp/register.log &
+
+            ./wait-for-hosts
+
+            ./test -- -n 2 -v || test_failed
+            ;;
+
+        lite )
+
+            ./test -e py27 -- core/test_virtual_machine.py core/test_container.py || test_failed
+            ;;
+
+        * )
+
+            echo "Unknown test plan specified."
+            exit 1
+
+    esac
+
+    tear_down
+    trap - EXIT SIGTERM
+
+done
