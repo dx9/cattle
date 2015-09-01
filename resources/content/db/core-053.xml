@@ -1,197 +1,261 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <property name="mediumtext" value="TEXT" dbms="postgresql" />
-    <property name="mediumtext" value="MEDIUMTEXT" />
+    <property name="mediumtext" value="MEDIUMTEXT(16777215)" />
     <changeSet author="darren (generated)" id="dump6">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="account"/>
+        <validCheckSum>98a22289d4e30b40be2a50954493e204</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="account"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump7">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="agent"/>
+        <validCheckSum>01dccfbdd9edb0a1c3a04332738b07dd</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="agent"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump8">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="agent_group"/>
+        <validCheckSum>9997b99aa0c61f6b995ed2e8f85c73d4</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="agent_group"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump9">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="certificate"/>
+        <validCheckSum>844c409d2f99e9ab628af76b5cbc69ef</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="certificate"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump10">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="cluster_host_map"/>
+        <validCheckSum>6495ca31589040be1501e6d40b9ee4e9</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="cluster_host_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump11">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="container_event"/>
+        <validCheckSum>320aad44df19869d0657550955783ac8</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="container_event"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump12">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="credential"/>
+        <validCheckSum>28a566d351845dd1a5e1983cef8876e9</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="credential"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump13">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="credential_instance_map"/>
+        <validCheckSum>3820bb8c3dd0a1c9374c2dbc736523aa</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="credential_instance_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump14">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="environment"/>
+        <validCheckSum>d51c92c6b214debb540ae4d90e806f0a</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="environment"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump15">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="external_handler"/>
+        <validCheckSum>1b50b513f5c133d6bafd600b390c9dfc</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="external_handler"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump16">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="external_handler_external_handler_process_map"/>
+        <validCheckSum>ea30ffa466e59f4ebbd2b3c0d8cb32c8</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="external_handler_external_handler_process_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump17">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="external_handler_process"/>
+        <validCheckSum>c5936aa58dec8caa75db3162e8393847</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="external_handler_process"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump18">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="generic_object"/>
+        <validCheckSum>454261508723abfefdae4617a81f6f4b</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="generic_object"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump19">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="global_load_balancer"/>
+        <validCheckSum>fd91c653db16e49300c0ccf284b49db1</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="global_load_balancer"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump20">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="healthcheck_instance"/>
+        <validCheckSum>915b066312ef803a7007b5b03c6f5436</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="healthcheck_instance"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump21">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="healthcheck_instance_host_map"/>
+        <validCheckSum>38938872bfa4f607f608ad2e8ee0c65c</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="healthcheck_instance_host_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump22">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="host"/>
+        <validCheckSum>4c979caceeeb5d64d2ba78d22385aedb</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="host"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump23">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="host_ip_address_map"/>
+        <validCheckSum>9f4c013371f60e75f6e37bdb45aa33aa</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="host_ip_address_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump24">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="host_label_map"/>
+        <validCheckSum>09f58cf41649dbf1f904faed59efab3f</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="host_label_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump25">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="host_vnet_map"/>
+        <validCheckSum>14a67c71a9b2abd0740a9f00a4ce3941</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="host_vnet_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump26">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="image"/>
+        <validCheckSum>0beaa82fe0d5d64c100e00b6d1415d4c</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="image"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump27">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="image_storage_pool_map"/>
+        <validCheckSum>2f7e40147d148ff9e9ec266023a22aa8</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="image_storage_pool_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump28">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="instance"/>
+        <validCheckSum>00901b5a70f0d88cb6fd0f5e95a795d3</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="instance"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump29">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="instance_host_map"/>
+        <validCheckSum>9371b4c303ceb7b9171a31f3a8610901</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="instance_host_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump30">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="instance_label_map"/>
+        <validCheckSum>1a139cbde181d862c5a0a211f9d2a311</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="instance_label_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump31">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="instance_link"/>
+        <validCheckSum>6e3e1a7aa26563ea835ebedc59caa112</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="instance_link"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump32">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="ip_address"/>
+        <validCheckSum>5a372d37dda05d441a83a053ffe60c2f</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="ip_address"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump33">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="ip_address_nic_map"/>
+        <validCheckSum>ab03b275f66718a2f1bcdddc3453a2c1</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="ip_address_nic_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump34">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="ip_association"/>
+        <validCheckSum>282a8ba1124541b190f0a763d83325a6</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="ip_association"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump35">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="ip_pool"/>
+        <validCheckSum>cf725088866640535cc55df80cb960a7</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="ip_pool"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump36">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="label"/>
+        <validCheckSum>8711ec57b4827d282617b86a0731ab2d</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="label"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump37">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="load_balancer"/>
+        <validCheckSum>20e79775c2b9f6bfc51302d0c9a7a05f</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="load_balancer"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump38">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="load_balancer_config"/>
+        <validCheckSum>e0aed053d848268c870e0377b3ac1eb6</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="load_balancer_config"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump39">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="load_balancer_config_listener_map"/>
+        <validCheckSum>5e5e31d6222e0a0824ba7968b81d3982</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="load_balancer_config_listener_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump40">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="load_balancer_host_map"/>
+        <validCheckSum>07c7e8a1e1af9b905af1a49d55ae3d6e</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="load_balancer_host_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump41">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="load_balancer_listener"/>
+        <validCheckSum>321c7864141218d488b4074eba3e78f5</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="load_balancer_listener"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump42">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="load_balancer_target"/>
+        <validCheckSum>32837eb353cbf045fd713096d83e5efd</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="load_balancer_target"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump43">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="mount"/>
+        <validCheckSum>3d5a20996ddad97214978ae5e25af664</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="mount"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump44">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="network"/>
+        <validCheckSum>babeab34cdc0f61a5b076cd9026bc3c0</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="network"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump45">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="network_service"/>
+        <validCheckSum>84f89e16d17f1aa662ea14f48a7cfc86</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="network_service"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump46">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="network_service_provider"/>
+        <validCheckSum>f016dca4a782bbc8bcd34ba6638cc841</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="network_service_provider"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump47">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="network_service_provider_instance_map"/>
+        <validCheckSum>63109c8c8b221e4bc7635f5e379f5dc3</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="network_service_provider_instance_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump48">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="nic"/>
+        <validCheckSum>d1d1ef7576d3d71f4fb8e69086848b56</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="nic"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump49">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="offering"/>
+        <validCheckSum>6fa12f1d9f808a0b135a604c59659b3a</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="offering"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump50">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="physical_host"/>
+        <validCheckSum>1133ee243a35f38c6b7f5e86c736276b</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="physical_host"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump51">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="port"/>
+        <validCheckSum>ff619a72a60977cc44f9fc9038c64001</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="port"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump52">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="process_instance"/>
+        <validCheckSum>27851ce11c6fa43f40c14f6e31c6e184</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="process_instance"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump53">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="project_member"/>
+        <validCheckSum>3c5a66c7804e52386bfee2570375eb84</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="project_member"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump54">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="resource_pool"/>
+        <validCheckSum>e41f1d8f3ab02bf822d348ecddfdd2d8</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="resource_pool"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump55">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="service"/>
+        <validCheckSum>90a1964eb4e6d20685c7fe245b87b9a8</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="service"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump56">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="service_consume_map"/>
+        <validCheckSum>c04a7da978564df35a993e9c81e5dcd6</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="service_consume_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump57">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="service_event"/>
+        <validCheckSum>7ad0a80e1958384d96aa8f2c81f3c1b2</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="service_event"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump58">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="service_expose_map"/>
+        <validCheckSum>f4b9a9fd840edd1c7eca051fd3732c12</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="service_expose_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump59">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="snapshot"/>
+        <validCheckSum>ba65024f96d62b9e94198763ad4b2166</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="snapshot"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump60">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="snapshot_storage_pool_map"/>
+        <validCheckSum>9520dfbebd93f84771bfd77610fc1787</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="snapshot_storage_pool_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump61">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="storage_pool"/>
+        <validCheckSum>5259467f53132432b345a1b11375931e</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="storage_pool"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump62">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="storage_pool_host_map"/>
+        <validCheckSum>35228ea9becce2e6bb41e7d1c7f3a882</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="storage_pool_host_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump63">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="subnet"/>
+        <validCheckSum>38707d56010efa172737dad93bad93f7</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="subnet"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump64">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="subnet_vnet_map"/>
+        <validCheckSum>4ae5c3636633a925d99fd7399e9d409f</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="subnet_vnet_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump65">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="user_preference"/>
+        <validCheckSum>3c782850f329fe275c22d12871927eef</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="user_preference"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump66">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="vnet"/>
+        <validCheckSum>2030355b993a77170aa38e21677b389e</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="vnet"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump67">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="volume"/>
+        <validCheckSum>ef6f04eb845ebde22bcf4c7a51c51827</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="volume"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump68">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="volume_storage_pool_map"/>
+        <validCheckSum>99fb528d45a70749ed6c1a8c42a9cdc8</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="volume_storage_pool_map"/>
     </changeSet>
     <changeSet author="darren (generated)" id="dump69">
-        <modifyDataType columnName="data" newDataType="MEDIUMTEXT(16777215)" tableName="zone"/>
+        <validCheckSum>766802201171360fd9ef062c0739be30</validCheckSum>
+        <modifyDataType columnName="data" newDataType="${mediumtext}" tableName="zone"/>
     </changeSet>
 </databaseChangeLog>
